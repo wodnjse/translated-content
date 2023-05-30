@@ -5,9 +5,9 @@ slug: WebAssembly/Text_format_to_wasm
 
 {{WebAssemblySidebar}}
 
-WebAssembly에는 S- expression 기반의 텍스트 표현, 텍스트 편집기, 브라우저 개발자 도구 등에서 노출되도록 고안된 중간 양식이 있습니다.이 기사에서는 어떻게 작동하는지, 텍스트 형식 파일을 `.wasm` 어셈블리 형식으로 변환할 수 있는 도구를 사용하는 방법에 대해 설명합니다.
+WebAssembly에는 S- expression 기반의 텍스트 표현, 텍스트 편집기, 브라우저 개발자 도구 등에서 노출되도록 고안된 중간 양식이 있습니다. 이 기사에서는 어떻게 작동하는지, 텍스트 형식 파일을 `.wasm` 어셈블리 형식으로 변환할 수 있는 도구를 사용하는 방법에 대해 설명합니다.
 
-> **참고:** 텍스트 형식 파일은 대개 `.wat` 확장자로 저장됩니다. 때로는 `.wast`도 사용됩니다.이 파일은 변환 할 때 `.wast`으로 변환되지 않는 파일에 허용되는 추가 테스트 명령을 포함하는 파일을 가리 킵니다 - assertions 등
+> **참고:** 텍스트 형식 파일은 대개 `.wat` 확장자로 저장됩니다. 때로는 `.wast`도 사용됩니다. 이 파일은 변환 할 때 `.wast`으로 변환되지 않는 파일에 허용되는 추가 테스트 명령을 포함하는 파일을 가리킵니다 - assertions 등
 
 ## A first look at the text format
 
@@ -27,11 +27,11 @@ WebAssembly 함수 `exported_func`는 Google 환경에서 사용하기 위해 �
 
 ## Converting the text .wat into a binary .wasm file
 
-위의 `.wat` 텍스트 표현 예제를 `.wasm` 어셈블리 형식으로 변환 해 봅시다.
+위의 `.wat` 텍스트 표현 예제를 `.wasm` 어셈블리 형식으로 변환해  봅시다.
 
 1. 시작하려면 `simple.wat` 라는 텍스트 파일 안에 위의 목록을 복사하십시오.
-2. 이 텍스트 표현을 우리가 사용하기 전에 브라우저가 실제로 읽는 어셈블리 언어로 어셈블해야합니다. 이를 위해 wabt 도구를 사용할 수 있습니다.이 도구에는 WebAssembly의 텍스트 표현과 wasm을 변환하는 컴파일러가 포함되어 있으며 그 반대의 경우도 가능합니다. <https://github.com/webassembly/wabt>로 이동 -이 페이지의 지침에 따라 도구를 설정하십시오.
-3. 일단 도구를 만들었 으면 시스템 `PATH`에 `/wabt/out/clang/Debug` 디렉토리를 추가하십시오.
+2. 이 텍스트 표현을 우리가 사용하기 전에 브라우저가 실제로 읽는 어셈블리 언어로 어셈블해야 합니다. 이를 위해 wabt 도구를 사용할 수 있습니다. 이 도구에는 WebAssembly의 텍스트 표현과 wasm을 변환하는 컴파일러가 포함되어 있으며 그 반대의 경우도 가능합니다. <https://github.com/webassembly/wabt>로 이동 -이 페이지의 지침에 따라 도구를 설정하십시오.
+3. 일단 도구를 만들었으면 시스템 `PATH`에 `/wabt/out/clang/Debug` 디렉토리를 추가하십시오.
 4. 그런 다음, wat2wasm 프로그램을 실행하여 입력 파일의 경로와 `-o` 매개 변수 다음에 출력 파일의 경로를 전달하십시오.
 
     ```bash
